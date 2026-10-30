@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Daftar Tugas Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Daftar Tugas Saya</h1>
+
+        <!-- Form Tambah Tugas -->
+        <form id="todo-form">
+            <input type="text" id="todo-input" placeholder="Tambahkan tugas baru..." required autocomplete="off">
+            <button type="submit" id="submit-btn">Tambah</button>
+        </form>
+
+        <!-- Tombol Filter -->
+        <div class="filter-container">
+            <button class="filter-btn active" data-filter="all">Semua</button>
+            <button class="filter-btn" data-filter="completed">Selesai</button>
+            <button class="filter-btn" data-filter="uncompleted">Belum Selesai</button>
+        </div>
+
+        <!-- Status Loading & Error -->
+        <div id="loading" class="status-msg" style="display: none;">Memuat...</div>
+        <div id="error" class="status-msg error-msg" style="display: none;"></div>
+
+        <!-- Daftar Tugas -->
+        <ul id="todo-list"></ul>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>

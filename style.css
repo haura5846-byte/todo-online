@@ -1,0 +1,210 @@
+:root {
+    --primary-color: #f2baea;
+    --primary-hover: #e546d0;
+    --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #ffa3e9 100%);
+    --card-bg: #ffffff;
+    --text-color: #371f36;
+    --completed-bg: #d1fae5;
+    --completed-text: #065f46;
+    --uncompleted-bg: #fee2e2;
+    --uncompleted-text: #991b1b;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-color);
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: var(--card-bg);
+    width: 100%;
+    max-width: 650px;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Form Styling */
+#todo-form {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+#todo-input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+#todo-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+}
+
+#submit-btn {
+    padding: 14px 24px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#submit-btn:hover {
+    background-color: var(--primary-hover);
+}
+
+#submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Filter Styling */
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    background: #f3f4f6;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.filter-btn {
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #4b5563;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active {
+    background-color: white;
+    color: var(--primary-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+/* Status Message Styling */
+.status-msg {
+    text-align: center;
+    padding: 20px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.error-msg {
+    color: #ff0101;
+    background-color: #fee2e2;
+    border-radius: 10px;
+}
+
+/* List Tugas */
+#todo-list {
+    list-style: none;
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+/* Scrollbar kustom agar lebih rapi */
+#todo-list::-webkit-scrollbar {
+    width: 6px;
+}
+#todo-list::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 10px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.todo-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.todo-item.completed {
+    background-color: var(--completed-bg);
+    color: var(--completed-text);
+    border-left: 5px solid #6fceae;
+}
+
+.todo-item.uncompleted {
+    background-color: var(--uncompleted-bg);
+    color: var(--uncompleted-text);
+    border-left: 5px solid #d65c5c;
+}
+
+.badge {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.completed .badge {
+    background-color: #13694c;
+    color: white;
+}
+
+.uncompleted .badge {
+    background-color: #811515;
+    color: white;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+    }
+    #todo-form {
+        flex-direction: column;
+    }
+    #submit-btn {
+        width: 100%;
+    }
+}
